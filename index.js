@@ -76,8 +76,11 @@ function moveSnake() {
   const head = { x: snake[0].x + xVelocity, 
                   y: snake[0].y + yVelocity };
   snake.unshift(head);
-  if(false) {
-
+  // if food is eaten
+  if(snake[0].x == foodX && snake[0].y == foodY) {
+    score+=1
+    scoreText.textContent = score
+    createFood();
   }
   else {
     snake.pop();
