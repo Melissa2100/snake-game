@@ -74,7 +74,14 @@ function drawFood() {
 
 function moveSnake() {}
 
-function drawSnake() {}
+function drawSnake() {
+  ctx.fillStyle = snakeColor;
+  ctx.strokeStyle = snakeBoarder;
+  snake.forEach(snakePart => {
+    ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
+    ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+  });
+}
 
 function changeDirection() {}
 
