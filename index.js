@@ -36,9 +36,25 @@ function gameStart() {
   nextTick();
 }
 
-function nextTick() {}
+function nextTick() {
+  if (running) {
+    setTimeout(() => {
+      clearBoard();
+      drawFood();
+      moveSnake();
+      drawSnake();
+      checkGameOver();
+      nextTick();
+    }, 75);
+  } else {
+    displayGameOver();
+  }
+}
 
-function clearBoard() {}
+function clearBoard() {
+  ctx.fillStyle = boardBackground;
+  ctx.fillRect(0, 0, gameWidth, gameHeight);
+}
 
 function createFood() {
   function randomFood(min, max) {
