@@ -73,16 +73,14 @@ function drawFood() {
 }
 
 function moveSnake() {
-  const head = { x: snake[0].x + xVelocity, 
-                  y: snake[0].y + yVelocity };
+  const head = { x: snake[0].x + xVelocity, y: snake[0].y + yVelocity };
   snake.unshift(head);
   // if food is eaten
-  if(snake[0].x == foodX && snake[0].y == foodY) {
-    score+=1
-    scoreText.textContent = score
+  if (snake[0].x == foodX && snake[0].y == foodY) {
+    score += 1;
+    scoreText.textContent = score;
     createFood();
-  }
-  else {
+  } else {
     snake.pop();
   }
 }
@@ -96,7 +94,22 @@ function drawSnake() {
   });
 }
 
-function changeDirection() {}
+function changeDirection(event) {
+  const keyPressed = event.keyCode;
+  const LEFT = 37;
+  const UP = 38;
+  const RIGHT = 39;
+  const DOWN = 40;
+
+  const goingUp = yVelocity == -unitSize;
+  const goingDown = yVelocity == unitSize;
+  const goingRight = xVelocity == unitSize;
+  const goingLeft = xVelocity == -unitSize;
+
+  switch (true) {
+    case(keyPressed == LEFT && !goingRight):
+  }
+}
 
 function checkGameOver() {}
 
