@@ -107,7 +107,25 @@ function changeDirection(event) {
   const goingLeft = xVelocity == -unitSize;
 
   switch (true) {
-    case(keyPressed == LEFT && !goingRight):
+    case keyPressed == LEFT && !goingRight:
+      xVelocity = -unitSize;
+      yVelocity = 0;
+      break;
+
+    case keyPressed == UP && !goingDown:
+      xVelocity = 0;
+      yVelocity = -unitSize;
+      break;
+
+    case keyPressed == RIGHT && !goingLeft:
+      xVelocity = unitSize;
+      yVelocity = 0;
+      break;
+
+    case keyPressed == DOWN && !goingUp:
+      xVelocity = 0;
+      yVelocity = unitSize;
+      break;
   }
 }
 
